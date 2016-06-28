@@ -29,9 +29,29 @@ ActiveRecord::Schema.define(version: 20160628161530) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.boolean  "super_user",             default: true
+    t.boolean  "star",                   default: true
     t.boolean  "admin",                  default: false
-    t.boolean  "company",                default: false
+    t.boolean  "company_user",           default: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "gender"
+    t.string   "age",                                                 array: true
+    t.string   "birth_month"
+    t.string   "relationship_status"
+    t.string   "race"
+    t.string   "anual_income"
+    t.string   "children"
+    t.integer  "kid_ages",                                            array: true
+    t.boolean  "twins",                  default: false
+    t.integer  "twin_ages",                                           array: true
+    t.string   "education"
+    t.string   "career"
+    t.string   "employer"
+    t.string   "phone"
+    t.string   "alt_phone"
+    t.string   "zip"
+    t.string   "closest_city"
+    t.string   "referral"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
