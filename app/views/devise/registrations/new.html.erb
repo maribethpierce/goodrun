@@ -1,5 +1,12 @@
-<h2>Sign up</h2>
+<h2>SuperStar Community</h2>
+<p>
+  Our Superstars are a national community of consumers that are demographically diverse and representative, but are exceptionally engaged. We excel at recruiting GOOD people because we treat them as the Superstars they are.
 
+Want to talk with a small, highly precise target group? We excel at finding them and may know them already. Tell us who you’re looking for.
+</p>
+
+<h1>SuperStar Community</h1>
+<h4>Fill out this form to join us:</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -7,7 +14,14 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -19,6 +33,106 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.label :gender, "female", :value => "female" %>
+    <%= f.radio_button :gender, "female" %><br>
+    <%= f.label :gender, "male", :value => "male" %>
+    <%= f.radio_button :gender, "male" %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, placeholder: "Please be honest. It's important." %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_month %>
+    <%= f.select :birth_month, options_for_select(["January","February","March","April","May",
+                              "June","July","August","September","October",
+                              "November","December"])%>
+  </div>
+  <div class="field">
+    <%= f.label :relationship_status %><br />
+    <%= f.select :relationship_status, options_for_select(["Single","Long-Term Relationship",
+                                              "Married","Separated","Divorced",
+                                              "Widowed"])%>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br />
+    <%= f.select :race, options_for_select(["African_American","Asian-American",
+                  "Hispanic/Latino","White/Caucasian", "Other"], :include_blank => true)%>
+    <%= f.text_field :race, placeholder: "Please specify other"%>
+  </div>
+  <div class="field">
+    <%= f.label :anual_income %><br />
+    <%= f.select :anual_income, options_for_select(["Under $30,000","$30,000-$49,999","$50,000-$74,999",
+                                        "$75,000-$99,000","$100,000+"])%>
+  </div>
+  <div class="field">
+    <%= f.label :how_many_children %><br />
+    <%= f.select :children, options_for_select(["0",'1','2','3','4','5','6+'])%>
+  </div>
+  <div class="field">
+    <%= f.label :kids_ages %>
+    <% ages = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'] %>
+    <% ages.each do |age| %>
+      <%= f.label "#{age}" %>
+      <%= f.check_box :kid_ages, { :multiple => true }, age, nil %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :are_any_of_your_kids_twins? %><br />
+    <%= f.label :twins, "Yes", :value => true %>
+    <%= f.radio_button :twins, true %><br>
+  </div>
+  <div class="field">
+    <%= f.label :twins_ages %>
+    <% ages = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'] %>
+    <% ages.each do |age| %>
+      <%= f.label "#{age}" %>
+      <%= f.check_box :kid_ages, { :multiple => true }, age, nil %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :education_level %><br />
+    <%= f.select :education, options_for_select(["Some High School","High School Graduate",
+                                      "Some College","2-Year College Graduate",
+                                      "4-Year College Graduate","Post Graduate Degree"])%>
+  </div>
+  <div class="field">
+    <%= f.label :career %><br />
+    <%= f.select :career, options_for_select(["Education","Retail",
+                                      "Banking/Finance","Public Safety/Service",
+                                      "Medical/Dental","Sales","Legal","Agricultural",
+                                      "Food/Beverage","At-Home Parent", "Marketing/Advertizing",
+                                      "Media Industry", "Other"])%>
+    <%= f.text_field :race, placeholder: "Please specify other"%>
+
+  </div>
+  <div class="field">
+    <%= f.label :employer %><br />
+    <%= f.text_field :employer, placeholder: "If you don't mind sharing" %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.telephone_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :altternative_phone %><br />
+    <%= f.telephone_field :alt_phone, placeholder: "You know, just in case" %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip, placeholder: "Just the 5 digits" %>
+  </div>
+  <div class="field">
+    <%= f.label :closest_urban_city_to_you? %><br />
+    <%= f.text_field :closest_city %>
+  </div>
+  <div class="field">
+    <%= f.label :Who_can_we_thank_for_referring_you? %><br />
+    <%= f.text_field :referral %>
   </div>
 
   <div class="actions">
