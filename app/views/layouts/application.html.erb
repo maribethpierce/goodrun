@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Goodrun</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="http://goodrunresearch.com/wp-content/themes/goodrun/images/icons/apple-touch-icon-144x144.png" />
+
+  <title>Good Run Research &amp; Recreation - Research Solutions</title>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Goodrun</a></h1>
+      <li class="name" style="list-style-type:none;">
+        <p style="text:upcase;">Good Run Research &amp Recreation</p>
       </li>
     </ul>
 
     <section class="top-bar-section">
-      <ul class="right">
+      <ul class="right" style="list-style-type:none;">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>
